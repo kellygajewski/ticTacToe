@@ -1,0 +1,39 @@
+<!DOCTYPE>
+<html x-ng-app="ticTacToeApp">
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+	<script src="script.js"></script>
+	<link rel="stylesheet" href="style.css">
+	<link href='http://fonts.googleapis.com/css?family=Overlock:400,700' rel='stylesheet' type='text/css'>
+	<title>Tic Tac Toe</title>
+</head>
+<body x-ng-controller="TicTacToeController">
+	<div id="container">
+		<h1 x-ng-bind="message"></h1>
+		<div id="board">
+			<div class="row" x-ng-repeat="r in rows track by $index">
+				<div class="cell clearfix" x-ng-repeat="c in r track by $index" x-ng-click="placeXO($parent.$index, $index)"> <!-- parent index is row, index is column -->
+					{{ c }}
+				</div>
+			</div>
+		</div>
+		<div id="score">
+<!-- 			<table class="clearfix">
+				<th>
+					<td>Player X</td>
+					<td>Player O</td>
+				</th>
+				<tr>
+					<td x-ng-bind="xWins"></td>
+					<td x-ng-bind="oWins"></td>
+				</tr>
+			</table> -->
+			<div class="scorecell clearfix">Player X</div>	
+			<div class="scorecell clearfix">Player O</div>
+			<div class="scorecell clearfix" x-ng-bind="xWins"></div>
+			<div class="scorecell clearfix"x-ng-bind="xWins"></div>
+		</div>
+		<input type="button" class="button clearfix" value="Play again!" x-ng-click="reset()"/>
+	</div>
+</body>
+</html>
