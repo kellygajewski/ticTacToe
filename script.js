@@ -61,7 +61,7 @@ ticTacToeApp.controller('TicTacToeController', function ($scope) {
 
 		}
 
-		else if ((j.indexOf("XO") === -1) && (j.indexOf("OX") === -1) && (k.indexOf("XO") === -1) && (k.indexOf("OX") === -1) && (l.indexOf("XO") === -1) && (l.indexOf("OX") === -1) && (m.indexOf("XO") === -1) && (m.indexOf("OX") === -1)) {
+		else if (((j.indexOf("XO") == -1) && (j.indexOf("OX") == -1)) || ((k.indexOf("XO") == -1) && (k.indexOf("OX") == -1)) || ((l.indexOf("XO") == -1) && (l.indexOf("OX") == -1)) || ((m.indexOf("XO") == -1) && (m.indexOf("OX") == -1))) {
 			$scope.turnHandler();
 		}
 		else {

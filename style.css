@@ -4,7 +4,8 @@ body {
 	color: white; /*	#DB0058*/
 	text-shadow: black 0.1em 0.1em 0.2em;
 	text-align: center;
-	background: url("aquarium.jpg") center no-repeat;
+	background: url("aquarium.jpg") center no-repeat; 
+	background-size: cover;
 	background-attachment: fixed;
 	min-height: 100%;
 /*	opacity: 0.4;*/
@@ -19,7 +20,9 @@ body {
 	clear: both;
 	height: 500px;
 }
-
+#container2 {
+	padding: 2px;
+}
 h1 {
 	line-height: 40%;
 }
@@ -37,12 +40,12 @@ h1 {
 }
 #board {
 	width: 252px;
-	margin: 0 40px;
+	margin: 0 30px;
 	clear: both;
 	float: left;
 }
 .button {
-	margin: 250px auto 0px auto;
+	margin: 35px auto 0px auto;
 	color: white;
 	background: rgba(0, 0, 0, 0);	
 	font-size: 20px;
@@ -62,17 +65,13 @@ h1 {
 #score {
 	height: 108px;
 	width: 208px;
+	float:left;
 }
 .scorecell {
 	height: 50px;
 	width: 100px;
+	line-height: 50px;
 	border: 2px solid white;
 	float: left;
 	font-size: 20px;
-}
-table {
-	border: 2px solid white;
-}
-td {
-	border: 2px solid white;
 }
