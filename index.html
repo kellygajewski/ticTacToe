@@ -1,9 +1,11 @@
 <!DOCTYPE>
 <html x-ng-app="ticTacToeApp">
 <head>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+    	<script src="https://cdn.firebase.com/v0/firebase.js"></script>
+	<script src="https://cdn.firebase.com/libs/angularfire/0.6.0/angularfire.min.js"></script>
 	<script src="script.js"></script>
-	<link href='http://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="style.css">
 	
 	<title>Tic Tac Toe</title>
@@ -19,7 +21,8 @@
 				</div>
 			</div>
 		</div>
-		<div id="score">
+		<div id="score" class="clearfix">
+			<p>Score:</p>
 			<div class="scorecell clearfix shadow">Player X<div class="actualscore" x-ng-bind="xWins"></div></div>	
 			<div class="scorecell clearfix shadow">Player O<div class="actualscore" x-ng-bind="oWins"></div></div>
 		</div>

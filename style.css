@@ -56,7 +56,8 @@ h1 {
 	display: block;
 	border-radius: 50px;
 	border: 2px solid white;
-	font-family: "Aclonica", sans-serif; 
+	font-family: "Aclonica", sans-serif;
+	text-shadow: black 0.1em 0.1em 0.2em; 
 }
 .button:hover {
 	background: rgba(0, 0, 0, 0.6);
@@ -72,7 +73,7 @@ h1 {
 	height: 108px;
 	width: 208px;
 	float:left;
-	padding-top: 15px;
+	/*padding-top: 15px;*/
 }
 .scorecell {
 	height: 70px;
@@ -83,7 +84,15 @@ h1 {
 	border: 2px solid white;
 	float: left;
 	font-size: 20px;
+	text-shadow: black 0.1em 0.1em 0.2em;
 	border-radius: 55px;
+}
+p {
+	margin: 0;
+	padding-left: 17px;
+	width: 180px;
+	text-align: left;
+	font-size: 24px;
 }
 /*.actualscore {
 	line-height: 55px;
