@@ -11,11 +11,12 @@
 	<title>Tic Tac Toe</title>
 </head>
 <body x-ng-controller="TicTacToeController">
+<!-- 	<div id="bigcontainer"></div> -->
 	<div id="container">
-		<h1 x-ng-bind="message"></h1>
+		<h1 x-ng-bind="game.message"></h1>
 		<div id="container2" class="clearfix">
 		<div id="board">
-			<div class="row" x-ng-repeat="r in rows track by $index">
+			<div class="row" x-ng-repeat="r in game.rows track by $index">
 				<div class="cell clearfix shadow" x-ng-repeat="c in r track by $index" x-ng-click="placeXO($parent.$index, $index)"> <!-- parent index is row, index is column -->
 					{{ c }}
 				</div>
@@ -23,11 +24,13 @@
 		</div>
 		<div id="score" class="clearfix">
 			<p>Score:</p>
-			<div class="scorecell clearfix shadow">Player X<div class="actualscore" x-ng-bind="xWins"></div></div>	
-			<div class="scorecell clearfix shadow">Player O<div class="actualscore" x-ng-bind="oWins"></div></div>
+			<div class="scorecell clearfix shadow">Player X<div class="actualscore" x-ng-bind="game.xWins"></div></div>	
+			<div class="scorecell clearfix shadow">Player O<div class="actualscore" x-ng-bind="game.oWins"></div></div>
 		</div>
 	</div>
 		<input type="button" class="button clearfix" value="Play again!" x-ng-click="reset()"/>
 	</div>
+<!-- 	<div class="scorecell" x-ng-bind="playerNum"></div> -->
+
 </body>
 </html>

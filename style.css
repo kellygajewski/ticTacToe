@@ -1,15 +1,13 @@
 body {
 	font-family: "Aclonica", sans-serif; 
 	font-size: 36px;
-	color: white; /*	#DB0058*/
+	color: white;
 	text-shadow: black 0.1em 0.1em 0.2em;
 	text-align: center;
 	background: url("aquarium.jpg") center no-repeat; 
 	background-size: cover;
 	background-attachment: fixed;
 	min-height: 100%;
-/*	opacity: 0.4;*/
-/*	filter:alpha(opacity=40); */
 }
 #container {
 	margin: 40px auto;
@@ -40,6 +38,9 @@ h1 {
 .cell:hover {
 	background: rgba(0, 0, 0);
 	background: rgba(0, 0, 0, 0.6);
+	-webkit-transform: scale(1.1);
+ 	-ms-transform: scale(1.1);
+  	transform: scale(1.1);
 }
 #board {
 	width: 280px;
@@ -73,14 +74,12 @@ h1 {
 	height: 108px;
 	width: 208px;
 	float:left;
-	/*padding-top: 15px;*/
 }
 .scorecell {
 	height: 70px;
 	width: 110px;
 	padding: 40px 0 0 0;
 	margin: 2px;
-/*	line-height: 70px;*/
 	border: 2px solid white;
 	float: left;
 	font-size: 20px;
@@ -94,16 +93,9 @@ p {
 	text-align: left;
 	font-size: 24px;
 }
-/*.actualscore {
-	line-height: 55px;
-}*/
-/*.shadow {
-  -moz-box-shadow:    3px 3px 3px 3px #ccc;
-  -webkit-box-shadow: 3px 3px 3px 3px #ccc;
-  box-shadow:         3px 3px 3px 3px #ccc;
-}*/
 .shadow {
    -moz-box-shadow:    inset 0 0 10px #000000;
    -webkit-box-shadow: inset 0 0 10px #000000;
    box-shadow:         inset 0 0 10px #000000;
 }
+
