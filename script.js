@@ -42,6 +42,7 @@ ticTacToeApp.controller('TicTacToeController', function ($scope, $firebase) {
 		  		turnCount: 0,
 		  		gameOver: false,
 		  		message: "Tic Tac Toe",
+		  		lastTurn: null,
 		  		// won: false, 
 		  		rows: [['','',''],['','',''],['','','']]} );
 		  	$scope.playerNum = 2;
@@ -59,17 +60,19 @@ ticTacToeApp.controller('TicTacToeController', function ($scope, $firebase) {
 	//place x or o 
 	$scope.placeXO = function(r, c) {
 		if ($scope.playerNum === 1) {
-			$scope.player1 === true;
+			$scope.player1 = true;
+			if (($scope.game.rows[r][c] === "") && ($scope.game.gameOver === false) && ($scope.game.player1 === true) && ($scope.game.lastTurn !== "x")) {
+				$scope.game.rows[r][c] = "X";
+				$scope.game.lastTurn = "x";
+			}
 		}
 		else if ($scope.playerNum === 2) {
-			$scope.player1 === false;
-		}
-		if (($scope.game.rows[r][c] === "") && ($scope.game.gameOver === false) && ($scope.game.player1 === true)) {
-				$scope.game.rows[r][c] = "X";
-			}
-		else if (($scope.game.rows[r][c] === "") && ($scope.game.player1 === false) && ($scope.game.gameOver === false)){
+			$scope.player1 = false;
+			if (($scope.game.rows[r][c] === "") && ($scope.game.player1 === false) && ($scope.game.gameOver === false) && ($scope.game.lastTurn !== "o")) {
 				$scope.game.rows[r][c] = "O";
+				$scope.game.lastTurn = "o";
 			}
+		}
 			$scope.checkWin(r,c);
 		};
 
@@ -135,6 +138,7 @@ ticTacToeApp.controller('TicTacToeController', function ($scope, $firebase) {
 		// }
 		$scope.game.rows = [['','',''],['','',''],['','','']];
 		$scope.game.gameOver = false;
+		$scope.game.lastTurn = null;
 		$scope.game.turnCount = 0;
 		$scope.game.message = "Tic Tac Toe";
 		$scope.game.$save();
