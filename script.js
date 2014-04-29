@@ -49,8 +49,11 @@ ticTacToeApp.controller('TicTacToeController', function ($scope, $firebase) {
 		  }
 		  else {
 		  	// Make a new game 
-				lastGame = ticTacRef.push( {waiting: true} );
-				$scope.playerNum = 1;
+			lastGame = ticTacRef.push( {waiting: true} );
+			// lastGame.set( {
+			// 	message: "Tic Tac Toe",
+		 //  		rows: [['','',''],['','',''],['','','']]} );
+			$scope.playerNum = 1;
 		  }
 		// Attach the last game to what we're up to
 	  $scope.game = $firebase(lastGame);
@@ -81,36 +84,44 @@ ticTacToeApp.controller('TicTacToeController', function ($scope, $firebase) {
 		var j = [];
 		var k = [];
 		var l = [];
-		for (var i = 0; i < 3; i++) {
-			j.push($scope.game.rows[r][i]);
-			k.push($scope.game.rows[i][c]);
-			l.push($scope.game.rows[i][i]);
+		var p = 0;
+		for (var m = 0; m < 3; m++) {
+			for (var n = 0; n < 3; n++) {
+				if ($scope.game.rows[m][n] !== "") {
+					p++;
+				}
 			}
-			j=j.join('');
-			k=k.join('');
-			l=l.join('');
-			var m = $scope.game.rows[0][2] + $scope.game.rows[1][1] + $scope.game.rows[2][0];
-		
-		
-		if ((j.indexOf("XXX") === 0) || (k.indexOf("XXX") === 0) || (l.indexOf("XXX") === 0) || (m.indexOf("XXX") === 0)) {
-			$scope.game.message = "X wins!";
-			$scope.game.xWins++;
-			$scope.game.gameOver = true;
 		}
-
-		else if ((j.indexOf("OOO") === 0) || (k.indexOf("OOO") === 0) || (l.indexOf("OOO") === 0) || (l.indexOf("OOO") === 0) || (m.indexOf("OOO") === 0)) {
-			$scope.game.message = "O wins!";
-			$scope.game.oWins++;
-			$scope.game.gameOver = true;
-
-		}
-
-		else if (((j.indexOf("XO") == -1) && (j.indexOf("OX") == -1)) || ((k.indexOf("XO") == -1) && (k.indexOf("OX") == -1)) || ((l.indexOf("XO") == -1) && (l.indexOf("OX") == -1)) || ((m.indexOf("XO") == -1) && (m.indexOf("OX") == -1))) {
-			$scope.turnHandler();
-		}
-		else {
+		if (p === 9) {
 			$scope.game.message = "Cat's game!";
 			$scope.game.gameOver = true;
+		}
+
+		else {
+			for (var i = 0; i < 3; i++) {
+				j.push($scope.game.rows[r][i]);
+				k.push($scope.game.rows[i][c]);
+				l.push($scope.game.rows[i][i]);
+				}
+				j=j.join('');
+				k=k.join('');
+				l=l.join('');
+				var m = $scope.game.rows[0][2] + $scope.game.rows[1][1] + $scope.game.rows[2][0];
+
+			if ((j.indexOf("XXX") === 0) || (k.indexOf("XXX") === 0) || (l.indexOf("XXX") === 0) || (m.indexOf("XXX") === 0)) {
+				$scope.game.message = "X wins!";
+				$scope.game.xWins++;
+				$scope.game.gameOver = true;
+			}
+
+			else if ((j.indexOf("OOO") === 0) || (k.indexOf("OOO") === 0) || (l.indexOf("OOO") === 0) || (l.indexOf("OOO") === 0) || (m.indexOf("OOO") === 0)) {
+				$scope.game.message = "O wins!";
+				$scope.game.oWins++;
+				$scope.game.gameOver = true;
+			}
+			else {
+				$scope.turnHandler();
+			}
 		}
 		$scope.game.turnCount++;
 		$scope.game.$save();
